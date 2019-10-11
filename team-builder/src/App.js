@@ -5,15 +5,17 @@ const App = () => {
   const [teamMembers, setTeamMembers] = useState([]);
 
   const handleTeamMemberCreate = form => {
+    // Guard against someone submitting
+    // unauthorized form fields
     const fields = ["name", "email", "role"];
 
+    // Fun with reducers!
     const member = fields.reduce((obj, field) => {
       obj[field] = form[field].value;
       return obj;
     }, {});
 
     setTeamMembers([...teamMembers, member]);
-    fields.forEach(field => form[field].value);
   };
 
   return (

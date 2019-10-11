@@ -16,6 +16,8 @@ const TeamMemberForm = ({ onFormSubmit }) => {
     event.target.name.focus();
   };
 
+  // Navid - check out this neat thing you can do
+  // with nested destructuring and event.target
   const handleFieldChange = ({ target: { name, value } }) => {
     setFormState({ ...formState, [name]: value });
   };
