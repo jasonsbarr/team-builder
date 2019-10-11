@@ -9,11 +9,15 @@ const TeamMemberForm = ({ onFormSubmit }) => {
 
   const [formState, setFormState] = useState(initialState);
 
+  const setInitialPageState = form => {
+    setFormState(initialState);
+    form.name.focus();
+  };
+
   const handleFormSubmit = event => {
     event.preventDefault();
     onFormSubmit(event.target);
-    setFormState(initialState);
-    event.target.name.focus();
+    setInitialPageState(event.target);
   };
 
   // Navid - check out this neat thing you can do
